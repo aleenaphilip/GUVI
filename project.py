@@ -15,7 +15,7 @@ import pandas as pd
 def channel_details(channel_id):
  api_service_name = "youtube"
  api_version = "v3"
- api_key = "AIzaSyDFz7xnffNVxmPSsZbf6Xppqlm1aaBpIgk" 
+ api_key = "AIzaSyAIJb4WDfZzS8ckMjGrIOJnhKIEHDNKTog" 
 # channel details
 # build connect youtube data and API keys
  youtube = build(api_service_name, api_version, developerKey=api_key)#api key assigned as the developer key
