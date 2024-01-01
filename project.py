@@ -141,7 +141,7 @@ def comment_details(v_id):
   comment_data = [] 
   api_service_name = "youtube"
   api_version = "v3"
-  api_key = "AIzaSyDFz7xnffNVxmPSsZbf6Xppqlm1aaBpIgk" 
+  api_key = "AIzaSyAIJb4WDfZzS8ckMjGrIOJnhKIEHDNKTog" 
   youtube = build(api_service_name, api_version, developerKey=api_key)#api key assigned as the developer key   
 
 # fetch comment data
@@ -227,7 +227,7 @@ mydb = mysql.connector.connect(     # here the mydb is a variable
 mycursor = mydb.cursor()
   create table for channel data
       Demo = '''create table Channel(
-     channel_name varchar(100), 
+     channel_name varchar(100) primary key, 
      channel_description text,
      channel_published timestamp,
     playlist_id varchar(100),
@@ -434,7 +434,7 @@ for index, row in df3.iterrows():
 mycursor.execute(insert_co,values)                
 mydb.commit()
 
-#---------------Queries-----------
+#---------------Streamlit----------
 
 import streamlit as st
 
@@ -497,7 +497,7 @@ if st.button("Collect and Store data"):
 if st.button("Migrate to SQL"):
  display = tables()
  st.success(display)
-
+#-------------queries-----------------------------------------
 show_table = st.radio("SELECT THE TABLE FOR VIEW",(":green[channels]",":red[videos]",":blue[comments]"))
 
 if show_table == ":green[channels]":
