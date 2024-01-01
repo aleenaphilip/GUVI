@@ -20,3 +20,8 @@ GOOGLE API CLIENT: The googleapiclient library in Python facilitates the communi
 MONGODB: MongoDB is built on a scale-out architecture that has become popular with developers of all kinds for developing scalable applications with evolving data schemas. As a document database, MongoDB makes it easy for developers to store structured or unstructured data. It uses a JSON-like format to store documents.
 
 MYSQL: MySql is an open-source, advanced, and highly scalable database management system (DBMS) known for its reliability and extensive features. 
+
+
+WORKFLOW:
+
+
