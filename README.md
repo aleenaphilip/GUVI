@@ -24,4 +24,15 @@ MYSQL: MySql is an open-source, advanced, and highly scalable database managemen
 
 WORKFLOW:
 
+1. Install API client
+2. Collect channel data
+3. Collect video ids and video details
+4. Collect comment details
+5. Connect with mongoDB
+6. Connect with MYSql
+7. Convert to data frame
+8. Create Tables for Channel, Video  and  Comment
+9. Connect with streamlit part
+
+
 
