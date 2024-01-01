@@ -224,20 +224,18 @@ mydb = mysql.connector.connect(     # here the mydb is a variable
             database= "Youtube"
 )
 
-#mycursor = mydb.cursor()
-# # create table for channel data
-
-
-# Demo = '''create table Channel(
-#     channel_name varchar(100), 
-#     channel_description text,
-#     channel_published timestamp,
-#     playlist_id varchar(100),
-#     subscribers_count int,
-#     video_count int,
-#     view_count int)'''
-# mycursor.execute(Demo)                
-# mydb.commit()
+mycursor = mydb.cursor()
+  create table for channel data
+      Demo = '''create table Channel(
+     channel_name varchar(100), 
+     channel_description text,
+     channel_published timestamp,
+    playlist_id varchar(100),
+    subscribers_count int,
+    video_count int,
+    view_count int)'''
+  mycursor.execute(Demo)                
+  mydb.commit()
 
 #-------------Convert details info dataframe (row and column format)-----------------
 # calling the mongodb database
@@ -267,29 +265,29 @@ df1 = pd.DataFrame(ch_list)
 df1
 
 
-# # insert channel details into mysql table 'channel'
-# for index,row in df1.iterrows():    # 
+# insert channel details into mysql table 'channel'
+for index,row in df1.iterrows():    # 
  
-#   insert_ch = '''INSERT into channel(channel_name,
-#                                    channel_description,
-#                                    channel_published,
-#                                    playlist_id,
-#                                    subscribers_count,
-#                                    video_count,
-#                                     view_count)
-#                 values(%s,%s,%s,%s,%s,%s,%s)'''
+  insert_ch = '''INSERT into channel(channel_name,
+                                   channel_description,
+                                   channel_published,
+                                   playlist_id,
+                                   subscribers_count,
+                                   video_count,
+                                    view_count)
+                values(%s,%s,%s,%s,%s,%s,%s)'''
 
-#   values =(
-#         row['channel_name'],
-#         row['channel_description'],
-#         row['channel_published'],
-#         row['playlist_id'],
-#         row['subscribers_count'],
-#         row['video_count'],
-#         row['view_count'])
+  values =(
+        row['channel_name'],
+        row['channel_description'],
+        row['channel_published'],
+        row['playlist_id'],
+        row['subscribers_count'],
+        row['video_count'],
+        row['view_count'])
     
-# mycursor.execute(insert_ch,values)                
-# mydb.commit()
+mycursor.execute(insert_ch,values)                
+mydb.commit()
 
 #--------------- create video table-----------------------
 
@@ -306,21 +304,21 @@ mycursor = mydb.cursor()
 # create table for channel data
 
 
-# v_table = '''create table video(
-#     video_name varchar(500), 
-#     video_Id varchar(255) primary key,
-#     video_description text,
-#     published_date datetime,
-#     view_count int,
-#     like_count int,
-#     dislike_Count int,
-#     favorite_Count int,
-#     comment_count int,
-#     duration int,
-#     thumbnail varchar(255),
-#     caption_status varchar (255))'''
-# mycursor.execute(v_table)                
-# mydb.commit()
+v_table = '''create table video(
+    video_name varchar(500), 
+    video_Id varchar(255) primary key,
+    video_description text,
+    published_date datetime,
+    view_count int,
+    like_count int,
+    dislike_Count int,
+    favorite_Count int,
+    comment_count int,
+    duration int,
+    thumbnail varchar(255),
+    caption_status varchar (255))'''
+mycursor.execute(v_table)                
+mydb.commit()
 
 
 mydb = mysql.connector.connect(     # here the mydb is a variable
@@ -343,40 +341,40 @@ for vi_de in collection_1.find({},{"_id":0,"video_information":1}):
 # convert to dataframe
 df2 = pd.DataFrame(vi_list)
 df2
-#  #insert video details into mysql table 'video'
-# for index, row in df2.iterrows():    
+ #insert video details into mysql table 'video'
+for index, row in df2.iterrows():    
 
-#     insert_vi ='''INSERT into video(video_name, 
-#                                   video_Id,
-#                                   video_description,
-#                                   published_date,
-#                                   view_count,
-#                                   like_count,
-#                                   dislike_Count,
-#                                   favorite_Count,
-#                                   comment_count,
-#                                   duration,
-#                                   thumbnail,
-#                                   caption_status)           
-#                     values (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)'''
+    insert_vi ='''INSERT into video(video_name, 
+                                  video_Id,
+                                  video_description,
+                                  published_date,
+                                  view_count,
+                                  like_count,
+                                  dislike_Count,
+                                  favorite_Count,
+                                  comment_count,
+                                  duration,
+                                  thumbnail,
+                                  caption_status)           
+                    values (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)'''
 
-#     values =(
-#            row['video_name'],
-#            row['video_Id'],
-#            row['video_description'],
-#            row['published_date'],
-#            row['view_count'],
-#            row['like_count'], 
-#            row['dislike_Count'],
-#            row['favorite_Count'],
-#            row['comment_count'],
-#            row['duration'],
-#            row['thumbnail'],
-#            row['caption_status'])
+    values =(
+           row['video_name'],
+           row['video_Id'],
+           row['video_description'],
+           row['published_date'],
+           row['view_count'],
+           row['like_count'], 
+           row['dislike_Count'],
+           row['favorite_Count'],
+           row['comment_count'],
+           row['duration'],
+           row['thumbnail'],
+           row['caption_status'])
           
     
-# mycursor.execute(insert_vi,values)                
-# mydb.commit()
+mycursor.execute(insert_vi,values)                
+mydb.commit()
 
 #------------------------------------comment table -------------------------------------------------
 
@@ -387,16 +385,16 @@ mydb = mysql.connector.connect(     # here the mydb is a variable
            database= "Youtube"
 )
 
-# mycursor = mydb.cursor()
+mycursor = mydb.cursor()
 
-# c_table = '''create table comment(Video_id varchar(255), 
-#                                  Comment_Id varchar(255) primary key,
-#                                  Comment_Text text,
-#                                  Comment_Author varchar(255),
-#                                  Comment_Published datetime)'''
+c_table = '''create table comment(Video_id varchar(255), 
+                                 Comment_Id varchar(255) primary key,
+                                 Comment_Text text,
+                                 Comment_Author varchar(255),
+                                 Comment_Published datetime)'''
     
-# mycursor.execute(c_table)                
-# mydb.commit()
+mycursor.execute(c_table)                
+mydb.commit()
 
 mydb = client["Youtube_db"]       
 collection_1 = mydb['Youtube_data']
@@ -417,24 +415,24 @@ for co_de in collection_1.find({},{"_id":0,"comment_information":1}):
     com_list.append(co_de["comment_information"][i])
 df3 = pd.DataFrame(com_list)
 df3
-# for index, row in df3.iterrows():    
-#  insert_co  = '''INSERT into comment(Video_id,
-#                                   Comment_Id, 
-#                                   Comment_Text,
-#                                   Comment_Author,
-#                                   Comment_Published) 
-#                         VALUES(%s, %s, %s, %s, %s) '''
+for index, row in df3.iterrows():    
+ insert_co  = '''INSERT into comment(Video_id,
+                                  Comment_Id, 
+                                  Comment_Text,
+                                  Comment_Author,
+                                  Comment_Published) 
+                        VALUES(%s, %s, %s, %s, %s) '''
     
-#  values =(
-#            row['Video_id'],
-#            row['Comment_Id'],
-#            row['Comment_Text'],
-#            row['Comment_Author'],
-#            row['Comment_Published'])
+ values =(
+           row['Video_id'],
+           row['Comment_Id'],
+           row['Comment_Text'],
+           row['Comment_Author'],
+           row['Comment_Published'])
           
     
-# mycursor.execute(insert_co,values)                
-# mydb.commit()
+mycursor.execute(insert_co,values)                
+mydb.commit()
 
 #---------------Queries-----------
 
